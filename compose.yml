@@ -2,15 +2,16 @@ services:
   backend:
     image: ${DOCKER_IMAGE_BE}
     restart: unless-stopped
-    # ports:
-    #   - "8000:8000"
-    # Only accessible to the host Nginx on this machine
     ports:
-      - "127.0.0.1:8000:8000"
+      - "8000:8000"
+    # Only accessible to the host Nginx on this machine
+    # ports:
+    #   - "127.0.0.1:8000:8000"
     # Use this for local development only
     # volumes:
     #   - ./hydroponic_be:/app:Z
     #   - py_venv:/app/.venv
+    # Comment this for build the image
     # build:
     #   context: .
     #   dockerfile: hydroponic_be/Dockerfile
@@ -37,11 +38,11 @@ services:
   frontend:
     image: ${DOCKER_IMAGE_FE}
     restart: unless-stopped
-    # ports:
-    #   - "3000:3000"
-    # Only accessible to the host Nginx on this machine
     ports:
-      - "127.0.0.1:3000:3000"
+      - "3000:3000"
+    # Only accessible to the host Nginx on this machine
+    # ports:
+    #   - "127.0.0.1:3000:3000"
     # Use this for local development only
     # volumes:
     #   - ./hydroponic_fe:/app:Z
